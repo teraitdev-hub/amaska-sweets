@@ -335,6 +335,106 @@ a.foot-credit:hover img, .foot-credit a:hover img { opacity: 1; }
 .wa-float:hover { transform: scale(1.06); }
 .wa-float.away { opacity: 0; transform: translateY(20px); pointer-events: none; }
 .wa-float svg { width: 28px; height: 28px; }
+/* ---------- Phone-only design (desktop untouched) ---------- */
+.ribbon .wrap span.dup, .plates-grid img.dup, .dock, .dots-nav, .menu-toggle .hb { display: none; }
+@keyframes rise { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
+@keyframes marquee { to { transform: translateX(-50%); } }
+@keyframes shine { to { background-position: 200% 0; } }
+@keyframes drop { from { opacity: 0; transform: translateY(-8px); } to { opacity: 1; transform: none; } }
+@media (max-width: 700px) {
+  /* header */
+  .menu-toggle { display: inline-flex; align-items: center; gap: 9px; background: var(--berry); color: var(--cream); border: 1px solid rgba(223,184,59,.7); padding: 9px 16px; font: 600 .92rem var(--font); box-shadow: 0 6px 16px rgba(60,0,30,.3); }
+  .menu-toggle .hb { display: grid; gap: 3.5px; width: 16px; }
+  .menu-toggle .hb b { height: 2px; border-radius: 2px; background: var(--gold); transition: transform .25s, opacity .2s; }
+  .menu-toggle[aria-expanded="true"] .hb b:nth-child(1) { transform: translateY(5.5px) rotate(45deg); }
+  .menu-toggle[aria-expanded="true"] .hb b:nth-child(2) { opacity: 0; }
+  .menu-toggle[aria-expanded="true"] .hb b:nth-child(3) { transform: translateY(-5.5px) rotate(-45deg); }
+  .nav { padding: 8px 24px 22px; background: radial-gradient(120% 90% at 100% 0, #8E0A4A 0, var(--berry-deep) 70%); counter-reset: nv; }
+  .nav.open { animation: drop .25s ease-out; }
+  .nav a { font-family: var(--font-display); font-weight: 400 !important; font-size: 1.45rem; padding: 13px 0; display: flex; align-items: baseline; gap: 14px; }
+  .nav a::before { counter-increment: nv; content: "0" counter(nv); font: 600 .72rem var(--font-label); letter-spacing: .14em; color: var(--gold); }
+
+  /* hero: headline, photo, then actions, all within the first screen */
+  .hero .wrap { position: relative; display: flex; flex-direction: column; align-items: stretch; gap: 0; padding-block: 26px 30px; }
+  .hero-copy { display: contents; }
+  .hero .emblem { position: absolute; right: 12px; top: 14px; width: 104px; margin: 0; z-index: 2; }
+  .hero .emblem text { font-size: 17px; }
+  .hero .place { order: 1; margin-bottom: 12px; font-size: .7rem; }
+  .hero h1 { order: 2; font-size: clamp(2.15rem, 10.2vw, 2.7rem); line-height: 1.06; max-width: 12ch; }
+  .hero h1 em { display: inline; background: linear-gradient(100deg, #DFB83B 20%, #FFF0B8 40%, #DFB83B 60%) 0 0 / 200% 100%; -webkit-background-clip: text; background-clip: text; color: transparent; animation: shine 5s linear infinite; padding-right: .06em; }
+  .hero .l1 { display: inline; }
+  .hero-copy > p { order: 3; margin: 14px 0 0; font-size: .95rem; max-width: none; color: rgba(251,244,226,.8); }
+  .stage { order: 4; width: 86%; align-self: center; margin: 22px 0 18px; }
+  .stage .photo { inset: 2%; }
+  .stage .tag { top: auto; bottom: 2%; left: 50%; transform: translateX(-50%); padding: 8px 16px; font-size: .82rem; border: 1px solid var(--gold); }
+  .stage .tag b { font-size: .98rem; }
+  .hero-actions { order: 5; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .hero-actions .btn { justify-content: center; text-align: center; padding: 13px 10px; font-size: .95rem; }
+  .hero-points { order: 6; margin-top: 18px; padding: 0; border: 0; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+  .hero-points li { text-align: center; padding: 10px 6px; border-radius: 14px; background: rgba(251,244,226,.07); border: 1px solid rgba(223,184,59,.35); font-size: .72rem; }
+  .hero-points b { font-size: .98rem; }
+  .hero > .wrap > *, .hero .hero-copy > * { animation: rise .7s both; }
+  .hero .hero-copy > h1 { animation-delay: .08s; } .hero .hero-copy > p { animation-delay: .16s; } .hero .stage { animation-delay: .24s; } .hero .hero-actions { animation-delay: .32s; } .hero .hero-points { animation-delay: .4s; }
+  .hero .hero-copy > .emblem { animation: rise .7s .1s both; }
+
+  @media (max-width: 380px) { .hero .emblem { width: 90px; right: 8px; } .hero .place { letter-spacing: .16em; } }
+  /* ribbon becomes a moving strip */
+  .ribbon .wrap { flex-wrap: nowrap; justify-content: flex-start; width: max-content; max-width: none; gap: 0; padding: 12px 0; font-size: .78rem; animation: marquee 26s linear infinite; }
+  .ribbon .wrap span, .ribbon .wrap span.dup { display: inline-flex; gap: 0; white-space: nowrap; }
+  .ribbon .wrap span::before, .ribbon .wrap span + span::before { content: ""; display: inline-block; width: 6px; height: 6px; transform: rotate(45deg); background: var(--berry); margin: 0 18px; }
+
+  /* section rhythm */
+  .sec-head h2 { font-size: clamp(2rem, 9vw, 2.4rem); }
+  .sec-head p { font-size: .95rem; }
+  .story-art { width: 92%; }
+  .pillars { gap: 10px; counter-reset: pl; }
+  .pillars li { position: relative; padding: 14px 16px 14px 58px; border: 1px solid rgba(123,0,60,.14); border-radius: 16px; background: #fff8ea; box-shadow: 0 8px 18px rgba(80,0,40,.06); }
+  .pillars li::before { counter-increment: pl; content: counter(pl); position: absolute; left: 16px; top: 50%; transform: translateY(-50%); width: 30px; height: 30px; border-radius: 50%; display: grid; place-items: center; background: var(--berry); color: var(--gold); font: 500 1rem var(--font-display); }
+
+  /* menu tabs scroll sideways */
+  .tabs { flex-wrap: nowrap; justify-content: flex-start; overflow-x: auto; margin-inline: -20px; padding: 2px 20px 6px; scrollbar-width: none; scroll-snap-type: x proximity; -webkit-mask: linear-gradient(90deg, #000 calc(100% - 36px), transparent); mask: linear-gradient(90deg, #000 calc(100% - 36px), transparent); }
+  .tabs::-webkit-scrollbar, .swipe::-webkit-scrollbar { display: none; }
+  .tab { flex: none; scroll-snap-align: start; font-size: .95rem; padding: 9px 18px; }
+  .list-block { background: rgba(255,255,255,.45); border: 1px solid rgba(123,0,60,.1); border-radius: 18px; padding: 16px 16px 6px; }
+  .list-block.duo { background: none; border: 0; padding: 0; }
+
+  /* gift boxes: swipe cards */
+  .boxes.swipe, .box-band.swipe { display: grid; grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: 84%; gap: 14px; overflow-x: auto; scroll-snap-type: x mandatory; margin-inline: -20px; padding: 4px 20px 6px; scroll-padding-inline: 20px; max-width: none; scrollbar-width: none; }
+  .swipe > * { scroll-snap-align: start; }
+  .box .contents { font-size: .86rem; }
+  .box-band.swipe { margin-top: 18px; }
+  .dots-nav { display: flex; justify-content: center; gap: 7px; margin-top: 12px; }
+  .dots-nav i { width: 7px; height: 7px; border-radius: 999px; background: rgba(251,244,226,.35); transition: width .25s, background .25s; }
+  .dots-nav i.on { width: 22px; background: var(--gold); }
+
+  /* gallery: two moving rows of plates */
+  .gallery .wrap { padding-inline: 0; }
+  .gallery .sec-head { padding-inline: 20px; }
+  .plates-grid { grid-template-columns: none; grid-template-rows: repeat(2, 118px); grid-auto-flow: column; grid-auto-columns: 118px; gap: 14px; width: max-content; padding: 6px 14px 14px 0; animation: marquee 48s linear infinite; }
+  .plates-grid img, .plates-grid img.dup { display: block; }
+  .plates-grid img:nth-child(even), .plates-grid img:nth-child(even):hover { transform: none; }
+  .plates-grid img:nth-child(4n+3), .plates-grid img:nth-child(4n+4) { transform: translateY(0); }
+
+  .visit-card .actions { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .visit-card .actions .btn { justify-content: center; text-align: center; padding-inline: 8px; }
+  /* quick-action dock */
+  .wa-float { display: none; }
+  .dock { display: grid; grid-template-columns: 1fr 1.6fr 1fr; gap: 6px; position: fixed; left: 12px; right: 12px; bottom: calc(12px + env(safe-area-inset-bottom, 0px)); z-index: 45; padding: 6px; border-radius: 20px; background: rgba(92,0,45,.92); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); border: 1px solid rgba(223,184,59,.45); box-shadow: 0 14px 34px rgba(30,0,15,.4); transform: translateY(140%); transition: transform .35s ease, opacity .3s; }
+  .dock.show { transform: none; }
+  .dock.away { transform: translateY(140%); opacity: 0; }
+  .dock a { display: flex; align-items: center; justify-content: center; gap: 7px; padding: 11px 6px; border-radius: 14px; color: var(--cream); text-decoration: none; font-weight: 600; font-size: .86rem; }
+  .dock a svg { width: 18px; height: 18px; flex: none; }
+  .dock .dk-wa { background: var(--gold); color: var(--berry-deep); }
+  .site-foot { padding-bottom: 76px; }
+
+  /* scroll reveal */
+  .rv { opacity: 0; transform: translateY(22px); transition: opacity .7s ease, transform .7s ease; }
+  .rv.in { opacity: 1; transform: none; }
+}
+@media (max-width: 700px) and (prefers-reduced-motion: reduce) {
+  .ribbon .wrap, .plates-grid, .hero h1 em { animation: none; }
+  .ribbon .wrap { flex-wrap: wrap; width: auto; justify-content: center; } .ribbon .dup, .plates-grid .dup { display: none !important; }
+}
 </style>
 </head>
 <body>
@@ -342,7 +442,7 @@ a.foot-credit:hover img, .foot-credit a:hover img { opacity: 1; }
 <header class="top">
   <div class="wrap">
     <a class="brand" href="#top" aria-label="Amaskā home"><img class="bm" src="assets/mark-gold.png" alt="" width="400" height="395"><img class="bw" src="assets/wordmark-white.png" alt="Amaskā artisanal sweets &amp; savouries" width="800" height="255"></a>
-    <button class="menu-toggle" id="menu-toggle" aria-expanded="false" aria-controls="nav">Menu</button>
+    <button class="menu-toggle" id="menu-toggle" aria-expanded="false" aria-controls="nav"><i class="hb" aria-hidden="true"><b></b><b></b><b></b></i><span>Menu</span></button>
     <ul class="nav" id="nav">
       <li><a href="#story">Our Story</a></li>
       <li><a href="#menu">Menu</a></li>
@@ -386,7 +486,7 @@ a.foot-credit:hover img, .foot-credit a:hover img { opacity: 1; }
       </div>
     </div>
   </section>
-  <div class="ribbon"><div class="wrap"><span>Ghee &amp; Khova Sweets</span><span>Dry Fruit Specials</span><span>Chaat &amp; Snacks</span><span>Namkeen</span><span>Gift Boxes</span></div></div>
+  <div class="ribbon"><div class="wrap"><span>Ghee &amp; Khova Sweets</span><span>Dry Fruit Specials</span><span>Chaat &amp; Snacks</span><span>Namkeen</span><span>Gift Boxes</span><span class="dup" aria-hidden="true">Ghee &amp; Khova Sweets</span><span class="dup" aria-hidden="true">Dry Fruit Specials</span><span class="dup" aria-hidden="true">Chaat &amp; Snacks</span><span class="dup" aria-hidden="true">Namkeen</span><span class="dup" aria-hidden="true">Gift Boxes</span></div></div>
 
   <!-- Story -->
   <section class="story" id="story">
@@ -439,8 +539,8 @@ a.foot-credit:hover img, .foot-credit a:hover img { opacity: 1; }
         <h2>Gift boxes for every celebration</h2>
         <p>Assorted sweets in Amaskā keepsake boxes. Choose a size and order by WhatsApp or phone.</p>
       </div>
-      <div class="boxes" id="boxes"></div>
-      <div class="box-band">
+      <div class="boxes swipe" id="boxes"></div>
+      <div class="box-band swipe">
         <figure><img src="assets/box-blue.webp" alt="Amaska blue keepsake box with assorted sweets" width="1200" height="900" loading="lazy"><figcaption>The blue keepsake box</figcaption></figure>
         <figure><img src="assets/box-pink.webp" alt="Amaska pink keepsake box with assorted sweets" width="1200" height="900" loading="lazy"><figcaption>The pink keepsake box</figcaption></figure>
       </div>
@@ -548,6 +648,12 @@ a.foot-credit:hover img, .foot-credit a:hover img { opacity: 1; }
   <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.2c0-.1-.2-.2-.4-.3z"/></svg>
 </a>
 
+<nav class="dock" id="dock" aria-label="Quick actions">
+  <a href="tel:+919663897371"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z" fill="currentColor"/></svg>Call</a>
+  <a class="dk-wa" id="dock-wa" href="https://wa.me/919663897371" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2z"/></svg>WhatsApp</a>
+  <a href="#menu"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h14M5 9h14M5 14h9M5 19h9" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/></svg>Menu</a>
+</nav>
+
 <script>
 (function () {
   function A(n) { return (window.__A && window.__A[n]) || 'assets/' + n + '.webp'; }
@@ -563,6 +669,11 @@ a.foot-credit:hover img, .foot-credit a:hover img { opacity: 1; }
   var t = document.getElementById('menu-toggle'), nav = document.getElementById('nav');
   t.addEventListener('click', function () { var o = nav.classList.toggle('open'); t.setAttribute('aria-expanded', o); });
   nav.addEventListener('click', function (e) { if (e.target.tagName === 'A') { nav.classList.remove('open'); t.setAttribute('aria-expanded', 'false'); } });
+  var dock = document.getElementById('dock');
+  document.getElementById('dock-wa').href = wa('Hello Amaska, I would like to place an order.');
+  function onDock() { dock.classList.toggle('show', window.scrollY > 420); }
+  window.addEventListener('scroll', onDock, { passive: true }); onDock();
+  if ('IntersectionObserver' in window && fb) new IntersectionObserver(function (e) { dock.classList.toggle('away', e[0].isIntersecting); }).observe(fb);
   document.getElementById('yr').textContent = new Date().getFullYear();
   function esc(s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/"/g, '&quot;'); }
 
@@ -643,6 +754,28 @@ a.foot-credit:hover img, .foot-credit a:hover img { opacity: 1; }
   document.getElementById('plates-grid').innerHTML = ['g01', 'g02', 'g03', 'g04', 'g05', 'g06', 'g08', 'g09', 'g10', 'g11', 'g12', 'navratna-mixture'].map(function (n) {
     return '<img src="' + A(n) + '" alt="Amaska sweets" width="600" height="600" loading="lazy">';
   }).join('');
+  // Phone extras: a looping second set of plates for the gallery strip
+  var pg = document.getElementById('plates-grid');
+  Array.prototype.slice.call(pg.children).forEach(function (im) { var c = im.cloneNode(); c.className = 'dup'; c.alt = ''; c.setAttribute('aria-hidden', 'true'); pg.appendChild(c); });
+
+  // Phone extras: dots under swipe rows
+  Array.prototype.forEach.call(document.querySelectorAll('.swipe'), function (row) {
+    var dots = document.createElement('div'); dots.className = 'dots-nav'; dots.setAttribute('aria-hidden', 'true');
+    Array.prototype.forEach.call(row.children, function () { dots.appendChild(document.createElement('i')); });
+    row.parentNode.insertBefore(dots, row.nextSibling);
+    function mark() {
+      var w = row.children[0] ? row.children[0].offsetWidth : 1, k = Math.round(row.scrollLeft / w);
+      Array.prototype.forEach.call(dots.children, function (d, j) { d.classList.toggle('on', j === k); });
+    }
+    row.addEventListener('scroll', mark, { passive: true }); mark();
+  });
+
+  // Phone extras: sections rise into view as you scroll
+  if ('IntersectionObserver' in window && window.matchMedia('(max-width: 700px)').matches && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    var rv = document.querySelectorAll('.sec-head, .story-copy > *, .box, .box-band figure, .shelf, .tin, .namkeen, .visit-card, .foot-brand, .foot-cols > div');
+    var io = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }); }, { rootMargin: '0px 0px -8% 0px' });
+    Array.prototype.forEach.call(rv, function (el) { el.classList.add('rv'); io.observe(el); });
+  }
 })();
 </script>
 
