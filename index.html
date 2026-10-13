@@ -9,11 +9,13 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600&family=Montserrat:wght@500;600&display=swap">
 <link rel="icon" href="assets/mark-gold.png">
+<meta name="color-scheme" content="only light">
 <style>
 /* Layout: the printed Amaska menu and festive book, brought to the web.
    Berry (#7B003C) and cream grounds alternate; gold line mandalas; Fraunces headings, Inter text, Montserrat labels;
    food sits on round plates like the menu. Single brand look by design, so no dark variant. */
 :root {
+  color-scheme: only light;
   --berry: #7B003C;
   --berry-deep: #5C002D;
   --berry-ink: #4D0026;
@@ -431,12 +433,14 @@ a.foot-credit:hover img, .foot-credit a:hover img { opacity: 1; }
   .visit-card .actions .btn { justify-content: center; text-align: center; padding-inline: 8px; }
   /* quick-action dock */
   .wa-float { display: none; }
-  .dock { display: grid; grid-template-columns: 1fr 1.6fr 1fr; gap: 6px; position: fixed; left: 12px; right: 12px; bottom: calc(12px + env(safe-area-inset-bottom, 0px)); z-index: 45; padding: 6px; border-radius: 20px; background: rgba(92,0,45,.92); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); border: 1px solid rgba(223,184,59,.45); box-shadow: 0 14px 34px rgba(30,0,15,.4); transform: translateY(140%); transition: transform .35s ease, opacity .3s; }
+  .dock { display: grid; grid-template-columns: 1fr 1.6fr 1fr; gap: 6px; position: fixed; left: 12px; right: 12px; bottom: calc(12px + env(safe-area-inset-bottom, 0px)); z-index: 45; padding: 7px; border-radius: 20px; background: #E5A0B8 center / cover no-repeat; border: 2px solid var(--gold); box-shadow: 0 14px 34px rgba(30,0,15,.45), inset 0 0 0 1px rgba(255,255,255,.35); transform: translateY(140%); transition: transform .35s ease, opacity .3s; }
   .dock.show { transform: none; }
   .dock.away { transform: translateY(140%); opacity: 0; }
-  .dock a { display: flex; align-items: center; justify-content: center; gap: 7px; padding: 11px 6px; border-radius: 14px; color: var(--cream); text-decoration: none; font-weight: 600; font-size: .86rem; }
+  .dock a { display: flex; align-items: center; justify-content: center; gap: 7px; padding: 11px 6px; border-radius: 14px; color: var(--berry-deep); background: none; border: 1px solid transparent; text-shadow: 0 0 6px rgba(255,240,245,.9), 0 0 2px rgba(255,240,245,.9); text-decoration: none; font-weight: 700; font-size: .9rem; }
+  .dock a:not(.dk-wa) svg { filter: drop-shadow(0 0 3px rgba(255,240,245,.9)); }
   .dock a svg { width: 18px; height: 18px; flex: none; }
-  .dock .dk-wa { background: var(--gold); color: var(--berry-deep); }
+  .dock .dk-wa { text-shadow: none; background: linear-gradient(135deg, #9A1457, #7B003C 55%, #5C002D); color: #FFF6E4; border-color: var(--gold); box-shadow: 0 6px 14px rgba(80,0,40,.35); }
+  .dock .dk-wa svg { color: var(--gold); }
   .site-foot { padding-bottom: 76px; }
 
   /* scroll reveal */
@@ -681,6 +685,7 @@ a.foot-credit:hover img, .foot-credit a:hover img { opacity: 1; }
   t.addEventListener('click', function () { var o = nav.classList.toggle('open'); t.setAttribute('aria-expanded', o); });
   nav.addEventListener('click', function (e) { if (e.target.tagName === 'A') { nav.classList.remove('open'); t.setAttribute('aria-expanded', 'false'); } });
   var dock = document.getElementById('dock');
+  dock.style.backgroundImage = 'url(' + A('dock-pattern') + ')';
   document.getElementById('dock-wa').href = wa('Hello Amaska, I would like to place an order.');
   function onDock() { dock.classList.toggle('show', window.scrollY > 420); }
   window.addEventListener('scroll', onDock, { passive: true }); onDock();
