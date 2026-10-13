@@ -100,8 +100,9 @@ section { position: relative; }
 .menu-toggle[aria-expanded="true"] .hb b:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
 @keyframes hbw { 50% { width: 16px; } }
 @media (max-width: 700px) {
-  .menu-toggle { gap: 7px; padding: 3px 12px 3px 3px; font-size: .74rem; letter-spacing: .12em; border-width: 1px; box-shadow: 0 5px 12px rgba(60,0,30,.3), inset 0 1px 0 rgba(255,255,255,.18); }
-  .menu-toggle .hb { width: 26px; height: 26px; padding: 0 7px; gap: 3px; }
+  .menu-toggle { gap: 0; padding: 2px; border-width: 1px; box-shadow: 0 4px 10px rgba(60,0,30,.3); }
+  .menu-toggle > span { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  .menu-toggle .hb { width: 32px; height: 32px; padding: 0 9px; gap: 3px; }
   .menu-toggle .hb b:nth-child(1), .menu-toggle[aria-expanded="true"] .hb b { width: 12px; } .menu-toggle .hb b:nth-child(2) { width: 8px; } .menu-toggle .hb b:nth-child(3) { width: 10px; }
   .menu-toggle[aria-expanded="true"] .hb b:nth-child(1) { transform: translateY(5px) rotate(45deg); }
   .menu-toggle[aria-expanded="true"] .hb b:nth-child(3) { transform: translateY(-5px) rotate(-45deg); }
