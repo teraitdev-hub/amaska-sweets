@@ -9,13 +9,13 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600&family=Montserrat:wght@500;600&display=swap">
 <link rel="icon" href="assets/mark-gold.png">
-<meta name="color-scheme" content="only light">
+<meta name="color-scheme" content="light dark">
 <style>
 /* Layout: the printed Amaska menu and festive book, brought to the web.
    Berry (#7B003C) and cream grounds alternate; gold line mandalas; Fraunces headings, Inter text, Montserrat labels;
    food sits on round plates like the menu. Single brand look by design, so no dark variant. */
 :root {
-  color-scheme: only light;
+  color-scheme: light dark;
   --berry: #7B003C;
   --berry-deep: #5C002D;
   --berry-ink: #4D0026;
@@ -31,7 +31,6 @@
   --font-display: "Fraunces", Georgia, "Times New Roman", serif;
   --font-label: "Montserrat", "Inter", system-ui, sans-serif;
   --wrap: 1180px;
-  color-scheme: light;
 }
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; scroll-padding-top: 76px; }
@@ -100,6 +99,14 @@ section { position: relative; }
 .menu-toggle[aria-expanded="true"] .hb b:nth-child(2) { opacity: 0; }
 .menu-toggle[aria-expanded="true"] .hb b:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
 @keyframes hbw { 50% { width: 16px; } }
+@media (max-width: 700px) {
+  .menu-toggle { gap: 7px; padding: 3px 12px 3px 3px; font-size: .74rem; letter-spacing: .12em; border-width: 1px; box-shadow: 0 5px 12px rgba(60,0,30,.3), inset 0 1px 0 rgba(255,255,255,.18); }
+  .menu-toggle .hb { width: 26px; height: 26px; padding: 0 7px; gap: 3px; }
+  .menu-toggle .hb b:nth-child(1), .menu-toggle[aria-expanded="true"] .hb b { width: 12px; } .menu-toggle .hb b:nth-child(2) { width: 8px; } .menu-toggle .hb b:nth-child(3) { width: 10px; }
+  .menu-toggle[aria-expanded="true"] .hb b:nth-child(1) { transform: translateY(5px) rotate(45deg); }
+  .menu-toggle[aria-expanded="true"] .hb b:nth-child(3) { transform: translateY(-5px) rotate(-45deg); }
+}
+@media (max-width: 700px) { @keyframes hbw { 50% { width: 12px; } } }
 @media (max-width: 1000px) {
   .top .call { display: none; }
   .menu-toggle { display: inline-flex; }
