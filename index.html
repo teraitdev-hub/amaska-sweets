@@ -402,6 +402,15 @@ footer.site-foot .foot-base .foot-top:hover { color: var(--berry); }
 footer.site-foot .foot-base .foot-credit { border-right-color: rgba(0,0,0,.25); }
 
 @media (max-width: 700px) { footer.site-foot .foot-base .fpat { background-size: auto 150px; } }
+@media (max-width: 560px) {
+  footer.site-foot .foot-base { gap: 8px 12px; }
+  footer.site-foot .foot-base .foot-end { display: contents; }
+  footer.site-foot .foot-base .kn { order: 1; }
+  footer.site-foot .foot-base .foot-top { order: 2; margin-left: auto; }
+  footer.site-foot .foot-base .foot-credit { order: 3; border-right: 0; padding-right: 0; border-left: 1px solid rgba(0,0,0,.25); padding-left: 12px; }
+  footer.site-foot .foot-base > span { order: 4; flex-basis: 100%; text-align: center; white-space: nowrap; font-size: .74rem; }
+  footer.site-foot .foot-base .fb-ty { display: none; }
+}
 @media (max-width: 960px) { .foot-cols { grid-template-columns: 1fr 1fr; } .foot-cols > div:first-child { grid-column: 1 / -1; } }
 @media (max-width: 560px) { .foot-cols { grid-template-columns: 1fr; gap: 20px; } .foot-base { flex-direction: column; align-items: flex-start; } }
 @media (prefers-reduced-motion: reduce) { .foot-water, .foot-mark { animation: none; } }
@@ -723,7 +732,7 @@ footer.site-foot .foot-base .foot-credit { border-right-color: rgba(0,0,0,.25); 
     </div>
     <div class="foot-base"><div class="fpat" aria-hidden="true"></div>
       <img class="kn" src="assets/logo-kannada-dark.png" alt="Amaskā in Kannada" width="500" height="158">
-      <span>© <span id="yr">2026</span> Amaskā Sweets &amp; Savouries, Bengaluru. Thank you for letting us be a part of your beautiful moments.</span>
+      <span>© <span id="yr">2026</span> Amaskā Sweets &amp; Savouries, Bengaluru.<span class="fb-ty"> Thank you for letting us be a part of your beautiful moments.</span></span>
       <div class="foot-end"><a class="foot-credit" href="https://www.gouuji.com" target="_blank" rel="noopener" aria-label="Ignited by Gouuji"><img src="assets/gouuji-black.png" alt="Ignited by Gouuji" width="460" height="200"></a><a class="foot-top" href="#top">Back to top ↑</a></div>
     </div>
   </div>
