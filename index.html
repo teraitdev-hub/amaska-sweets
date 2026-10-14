@@ -343,6 +343,8 @@ section { position: relative; }
 .site-foot::after { content: ""; position: absolute; left: 0; right: 0; top: 14px; height: 1px; background: linear-gradient(90deg, transparent, rgba(223,184,59,.6), transparent); }
 .foot-water { position: absolute; width: 520px; right: -140px; bottom: -160px; opacity: .06; pointer-events: none; animation: turn 120s linear infinite; }
 .site-foot .wrap { position: relative; padding-block: 40px 22px; }
+/* Same gold sweet-box pattern as the header */
+.site-foot .fpat { position: absolute; inset: 0; pointer-events: none; background: center top / auto 260px repeat; opacity: .16; }
 .foot-brand { display: grid; justify-items: center; text-align: center; gap: 10px; }
 .foot-mark { width: 60px; animation: turn 24s linear infinite; filter: drop-shadow(0 6px 14px rgba(0,0,0,.25)); }
 .foot-word { width: min(180px, 52vw); }
@@ -676,7 +678,7 @@ a.foot-credit:hover img, .foot-credit a:hover img { opacity: 1; }
   </section>
 </main>
 
-<footer class="site-foot on-berry">
+<footer class="site-foot on-berry"><div class="fpat" aria-hidden="true"></div>
   <img class="foot-water" src="assets/mark-gold.png" alt="" width="400" height="395">
   <div class="wrap">
     <div class="foot-brand">
@@ -740,7 +742,7 @@ a.foot-credit:hover img, .foot-credit a:hover img { opacity: 1; }
   nav.addEventListener('click', function (e) { if (e.target.tagName === 'A') { nav.classList.remove('open'); t.setAttribute('aria-expanded', 'false'); } });
   var dock = document.getElementById('dock');
   dock.style.backgroundImage = 'url(' + A('dock-pattern') + ')';
-  document.querySelector('.top .hpat').style.backgroundImage = 'url(' + A('header-pattern') + ')';
+  document.querySelector('.top .hpat').style.backgroundImage = document.querySelector('.site-foot .fpat').style.backgroundImage = 'url(' + A('header-pattern') + ')';
   document.getElementById('dock-wa').href = wa('Hello Amaska, I would like to place an order.');
   function onDock() { dock.classList.toggle('show', window.scrollY > 420); }
   window.addEventListener('scroll', onDock, { passive: true }); onDock();
