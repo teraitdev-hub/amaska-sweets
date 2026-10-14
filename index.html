@@ -86,6 +86,16 @@ section { position: relative; }
 .top .call .ph svg { width: 18px; height: 18px; animation: ring 2.6s ease-in-out infinite; transform-origin: 50% 60%; }
 .top .call .tx { display: grid; line-height: 1.1; font-weight: 700; font-size: .98rem; letter-spacing: .01em; white-space: nowrap; }
 .top .call .tx small { font: 600 .62rem var(--font-label); letter-spacing: .18em; text-transform: uppercase; color: var(--berry); opacity: .85; }
+/* Round call icon in place of the "Call to order" pill */
+.top .call { padding: 0; width: 52px; height: 52px; justify-content: center; flex: none; }
+.top .call .ph { width: 40px; height: 40px; background: none; box-shadow: none; color: #7A5408; }
+.top .call, .top .call::after, .top .call .ph svg { animation: none; }
+.top .call::after { display: none; }
+.top .call .ph svg { width: 22px; height: 22px; filter: drop-shadow(0 1px 0 rgba(255,240,190,.7)); }
+@media (min-width: 1001px) { .top .wrap { align-items: flex-end; } .top .nav { margin-bottom: 14px; } .top .call { margin-bottom: 6px; }
+  /* Thin gold "|" dividers between the header links */
+  .top .nav { gap: 0; align-items: center; } .top .nav li { display: flex; align-items: center; }
+  .top .nav li + li::before { content: ""; width: 1.5px; height: 16px; margin: 0 14px; border-radius: 1px; background: var(--gold); box-shadow: 0 1px 2px rgba(60,0,30,.45); } }
 @keyframes sheen { 0%, 55% { background-position: -150% 0; } 100% { background-position: 250% 0; } }
 @keyframes ring { 0%, 60%, 100% { transform: rotate(0); } 64% { transform: rotate(-16deg); } 68% { transform: rotate(14deg); } 72% { transform: rotate(-12deg); } 76% { transform: rotate(10deg); } 80% { transform: rotate(-6deg); } 84% { transform: rotate(0); } }
 @keyframes callglow { 0%, 100% { box-shadow: 0 8px 20px rgba(80,0,40,.35), 0 0 0 0 rgba(223,184,59,.55), inset 0 1px 0 rgba(255,255,255,.6); } 50% { box-shadow: 0 8px 20px rgba(80,0,40,.35), 0 0 0 7px rgba(223,184,59,0), inset 0 1px 0 rgba(255,255,255,.6); } }
@@ -108,8 +118,10 @@ section { position: relative; }
   .menu-toggle[aria-expanded="true"] .hb b:nth-child(3) { transform: translateY(-5px) rotate(-45deg); }
 }
 @media (max-width: 700px) { @keyframes hbw { 50% { width: 12px; } } }
-@media (max-width: 1000px) {
+@media (max-width: 700px) {
   .top .call { display: none; }
+}
+@media (max-width: 1000px) {
   .menu-toggle { display: inline-flex; }
   .top .brand .bw { height: 30px; }
   .top .brand .bm { width: 42px; }
@@ -475,7 +487,7 @@ a.foot-credit:hover img, .foot-credit a:hover img { opacity: 1; }
       <li><a href="#weight">Sweets &amp; Namkeen</a></li>
       <li><a href="#visit">Visit</a></li>
     </ul>
-    <a class="btn call" href="tel:+919663897371"><span class="ph" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z" fill="currentColor"/></svg></span><span class="tx"><small>Call to order</small>+91 96638 97371</span></a>
+    <a class="btn call" href="tel:+919663897371" aria-label="Call to order: +91 96638 97371" title="Call +91 96638 97371"><span class="ph" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z" fill="currentColor"/></svg></span></a>
   </div>
 </header>
 
