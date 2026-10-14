@@ -73,11 +73,14 @@ section { position: relative; }
 /* ---------- Header ---------- */
 .top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 40; background: linear-gradient(180deg, #7B003C 0%, #9A2A5E 30%, #C886A6 66%, #F6E3EB 100%); border-bottom: 2px solid var(--gold); color: var(--berry); transition: box-shadow .3s; }
 .top.scrolled { box-shadow: 0 10px 30px rgba(40,0,20,.35); }
+/* Gold line pattern from the sweet box lid */
+.top .hpat { position: absolute; inset: 0; pointer-events: none; background: center center / auto 190px repeat; opacity: .45; }
+@media (max-width: 700px) { .top .hpat { background-size: auto 150px; } }
 .top::after { content: none; }
-.top .wrap { position: relative; display: flex; align-items: center; gap: 24px; padding-block: 12px; }
-.top .brand { display: grid; justify-items: center; gap: 4px; text-decoration: none; }
-.top .brand .bw { height: 36px; width: auto; filter: drop-shadow(0 1px 1px rgba(255,255,255,.45)); }
-.top .brand .bm { width: 54px; height: auto; filter: drop-shadow(0 1px 2px rgba(40,0,20,.35)); }
+.top .wrap { position: relative; display: flex; align-items: center; gap: 24px; padding-block: 10px; }
+.top .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+.top .brand .bw { height: 34px; width: auto; filter: drop-shadow(0 1px 1px rgba(255,255,255,.45)); }
+.top .brand .bm { width: 46px; height: auto; filter: drop-shadow(0 1px 2px rgba(40,0,20,.35)); }
 .nav { display: flex; gap: 26px; margin: 0 0 0 auto; list-style: none; padding: 0; }
 .nav a { text-decoration: none; color: #fff; text-shadow: 0 1px 3px rgba(60,0,30,.55); font-weight: 600 !important; padding-block: 6px; border-bottom: 1px solid transparent; transition: border-color .2s, color .2s; }
 .nav a:hover { color: var(--gold); border-color: var(--gold); }
@@ -89,12 +92,12 @@ section { position: relative; }
 .top .call .tx { display: grid; line-height: 1.1; font-weight: 700; font-size: .98rem; letter-spacing: .01em; white-space: nowrap; }
 .top .call .tx small { font: 600 .62rem var(--font-label); letter-spacing: .18em; text-transform: uppercase; color: var(--berry); opacity: .85; }
 /* Round call icon in place of the "Call to order" pill */
-.top .call { padding: 0; width: 52px; height: 52px; justify-content: center; flex: none; }
-.top .call .ph { width: 40px; height: 40px; background: none; box-shadow: none; color: #7A5408; }
+.top .call { padding: 0; width: 44px; height: 44px; justify-content: center; flex: none; }
+.top .call .ph { width: 34px; height: 34px; background: none; box-shadow: none; color: #7A5408; }
 .top .call, .top .call::after, .top .call .ph svg { animation: none; }
 .top .call::after { display: none; }
-.top .call .ph svg { width: 22px; height: 22px; filter: drop-shadow(0 1px 0 rgba(255,240,190,.7)); }
-@media (min-width: 1001px) { .top .wrap { align-items: flex-end; } .top .nav { margin-bottom: 14px; } .top .call { margin-bottom: 6px; }
+.top .call .ph svg { width: 19px; height: 19px; filter: drop-shadow(0 1px 0 rgba(255,240,190,.7)); }
+@media (min-width: 1001px) { 
   /* Thin gold "|" dividers between the header links */
   .top .nav { gap: 0; align-items: center; } .top .nav li { display: flex; align-items: center; }
   .top .nav li + li::before { content: ""; width: 1.5px; height: 16px; margin: 0 14px; border-radius: 1px; background: var(--gold); box-shadow: 0 1px 2px rgba(60,0,30,.45); } }
@@ -121,10 +124,16 @@ section { position: relative; }
   /* Plain three-line menu icon: no badge or circle */
   .menu-toggle { padding: 6px; background: none; border: 0; box-shadow: none; filter: drop-shadow(0 1px 1px rgba(255,255,255,.55)); }
   .menu-toggle::after { display: none; }
-  .menu-toggle .hb { width: 28px; height: 22px; padding: 0; gap: 6px; background: none; border-radius: 0; justify-items: stretch; }
-  .menu-toggle .hb b, .menu-toggle .hb b:nth-child(1), .menu-toggle .hb b:nth-child(2), .menu-toggle .hb b:nth-child(3), .menu-toggle[aria-expanded="true"] .hb b { width: 100%; height: 3px; animation: none; background: var(--berry-deep); }
-  .menu-toggle[aria-expanded="true"] .hb b:nth-child(1) { transform: translateY(8.5px) rotate(45deg); }
-  .menu-toggle[aria-expanded="true"] .hb b:nth-child(3) { transform: translateY(-8.5px) rotate(-45deg); }
+  .menu-toggle { padding: 12px 10px; margin-right: -10px; }
+  .menu-toggle .hb { width: 20px; height: 14px; padding: 0; gap: 4px; background: none; border-radius: 0; justify-items: stretch; }
+  .menu-toggle .hb b, .menu-toggle .hb b:nth-child(1), .menu-toggle .hb b:nth-child(2), .menu-toggle .hb b:nth-child(3), .menu-toggle[aria-expanded="true"] .hb b { width: 100%; height: 2px; animation: none; background: var(--berry-deep); }
+  .menu-toggle[aria-expanded="true"] .hb b:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+  .menu-toggle[aria-expanded="true"] .hb b:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+  /* Compact phone header */
+  header.top .wrap { padding-block: 10px; }
+  header.top .brand { gap: 8px; }
+  header.top .brand .bm { width: 38px; }
+  header.top .brand .bw { height: 28px; }
 }
 @media (max-width: 700px) { @keyframes hbw { 50% { width: 12px; } } }
 @media (max-width: 700px) {
@@ -133,7 +142,7 @@ section { position: relative; }
 @media (max-width: 1000px) {
   .menu-toggle { display: inline-flex; }
   .top .brand .bw { height: 30px; }
-  .top .brand .bm { width: 42px; }
+  .top .brand .bm { width: 40px; }
   .nav { position: absolute; left: 0; right: 0; top: 100%; flex-direction: column; gap: 0; background: var(--berry-deep); padding: 6px 20px 18px; border-top: 1px solid rgba(223,184,59,.3); box-shadow: 0 16px 30px rgba(40,0,20,.35); }
   .nav a { display: block; padding: 12px 0; color: var(--cream); border-bottom: 1px solid rgba(251,244,226,.1); }
   .nav a:hover { color: var(--gold); }
@@ -363,6 +372,13 @@ section { position: relative; }
 .foot-credit img { width: 54px; height: auto; opacity: .55; transition: opacity .2s; }
 a.foot-credit:hover img, .foot-credit a:hover img { opacity: 1; }
 .foot-top { color: var(--cream); text-decoration: none; font-weight: 500; }
+/* White bottom strip: berry Kannada logo, black text and Gouuji mark */
+.foot-base { position: relative; z-index: 0; border-top: 0; padding-block: 18px 4px; color: #111; }
+.foot-base::before { content: ""; position: absolute; z-index: -1; top: 0; bottom: -300px; left: -100vmax; right: -100vmax; background: #fff; border-top: 2px solid var(--gold); }
+.foot-base .foot-top { color: #111; }
+.foot-base .foot-top:hover { color: var(--berry); }
+.foot-base .foot-credit { border-right-color: rgba(0,0,0,.18); }
+.foot-base .foot-credit img { opacity: 1; }
 @media (max-width: 960px) { .foot-cols { grid-template-columns: 1fr 1fr; } .foot-cols > div:first-child { grid-column: 1 / -1; } }
 @media (max-width: 560px) { .foot-cols { grid-template-columns: 1fr; gap: 20px; } .foot-base { flex-direction: column; align-items: flex-start; } }
 @media (prefers-reduced-motion: reduce) { .foot-water, .foot-mark { animation: none; } }
@@ -485,7 +501,7 @@ a.foot-credit:hover img, .foot-credit a:hover img { opacity: 1; }
 </head>
 <body>
 
-<header class="top">
+<header class="top"><div class="hpat" aria-hidden="true"></div>
   <div class="wrap">
     <a class="brand" href="#top" aria-label="Amaskā home"><img class="bm" src="assets/mark-gold.png" alt="" width="400" height="395"><img class="bw" src="assets/wordmark-berry.png" alt="Amaskā artisanal sweets &amp; savouries" width="800" height="255"></a>
     <button class="menu-toggle" id="menu-toggle" aria-expanded="false" aria-controls="nav"><i class="hb" aria-hidden="true"><b></b><b></b><b></b></i><span>Menu</span></button>
@@ -682,9 +698,9 @@ a.foot-credit:hover img, .foot-credit a:hover img { opacity: 1; }
       </div>
     </div>
     <div class="foot-base">
-      <img class="kn" src="assets/logo-kannada-white.png" alt="Amaskā in Kannada" width="500" height="158">
+      <img class="kn" src="assets/logo-kannada-berry.png" alt="Amaskā in Kannada" width="500" height="158">
       <span>© <span id="yr">2026</span> Amaskā Sweets &amp; Savouries, Bengaluru. Thank you for letting us be a part of your beautiful moments.</span>
-      <div class="foot-end"><a class="foot-credit" href="https://www.gouuji.com" target="_blank" rel="noopener" aria-label="Ignited by Gouuji"><img src="assets/gouuji-white.png" alt="Ignited by Gouuji" width="460" height="200"></a><a class="foot-top" href="#top">Back to top ↑</a></div>
+      <div class="foot-end"><a class="foot-credit" href="https://www.gouuji.com" target="_blank" rel="noopener" aria-label="Ignited by Gouuji"><img src="assets/gouuji-black.png" alt="Ignited by Gouuji" width="460" height="200"></a><a class="foot-top" href="#top">Back to top ↑</a></div>
     </div>
   </div>
 </footer>
@@ -716,6 +732,7 @@ a.foot-credit:hover img, .foot-credit a:hover img { opacity: 1; }
   nav.addEventListener('click', function (e) { if (e.target.tagName === 'A') { nav.classList.remove('open'); t.setAttribute('aria-expanded', 'false'); } });
   var dock = document.getElementById('dock');
   dock.style.backgroundImage = 'url(' + A('dock-pattern') + ')';
+  document.querySelector('.top .hpat').style.backgroundImage = 'url(' + A('header-pattern') + ')';
   document.getElementById('dock-wa').href = wa('Hello Amaska, I would like to place an order.');
   function onDock() { dock.classList.toggle('show', window.scrollY > 420); }
   window.addEventListener('scroll', onDock, { passive: true }); onDock();
