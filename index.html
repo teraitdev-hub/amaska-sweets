@@ -71,11 +71,11 @@ section { position: relative; }
 .btn-outline:hover { border-color: var(--berry); }
 
 /* ---------- Header ---------- */
-.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 40; background: linear-gradient(180deg, #7B003C 0%, #9A2A5E 30%, #C886A6 66%, #F6E3EB 100%); border-bottom: 2px solid var(--gold); color: var(--berry); transition: box-shadow .3s; }
+.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 40; background: linear-gradient(180deg, #F6E3EB 0%, #EBC9D7 45%, #CF93AE 100%); border-bottom: 2px solid var(--gold); color: var(--berry); transition: box-shadow .3s; }
 .top.scrolled { box-shadow: 0 10px 30px rgba(40,0,20,.35); }
 /* Gold line pattern from the sweet box lid */
-.top .hpat { position: absolute; inset: 0; pointer-events: none; background: center center / auto 190px repeat; opacity: .45; }
-@media (max-width: 700px) { .top .hpat { background-size: auto 150px; } }
+.top .hpat { position: absolute; inset: 0; pointer-events: none; background: left center / auto 100% repeat-x; opacity: .55; }
+header.top .brand .bm, header.top .brand .bw { filter: drop-shadow(0 0 3px rgba(0,0,0,.35)) drop-shadow(0 2px 8px rgba(0,0,0,.3)); }
 .top::after { content: none; }
 .top .wrap { position: relative; display: flex; align-items: center; gap: 24px; padding-block: 10px; }
 .top .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
@@ -84,6 +84,7 @@ section { position: relative; }
 .nav { display: flex; gap: 26px; margin: 0 0 0 auto; list-style: none; padding: 0; }
 .nav a { text-decoration: none; color: #fff; text-shadow: 0 1px 3px rgba(60,0,30,.55); font-weight: 600 !important; padding-block: 6px; border-bottom: 1px solid transparent; transition: border-color .2s, color .2s; }
 .nav a:hover { color: var(--gold); border-color: var(--gold); }
+@media (min-width: 1001px) { header.top .nav a { color: var(--berry-deep); text-shadow: 0 0 6px rgba(255,246,250,.9), 0 0 2px rgba(255,246,250,.9); } header.top .nav a:hover { color: var(--berry); border-color: var(--gold); } }
 .top .call { position: relative; overflow: hidden; isolation: isolate; display: inline-flex; align-items: center; gap: 10px; padding: 6px 20px 6px 6px; border-radius: 999px; text-decoration: none; color: var(--berry-deep); background: linear-gradient(135deg, #F7DD86 0%, #DFB83B 45%, #C99A1E 100%); border: 1.5px solid rgba(255,244,200,.9); box-shadow: 0 8px 20px rgba(80,0,40,.35), inset 0 1px 0 rgba(255,255,255,.6); transition: transform .25s, box-shadow .25s; animation: callglow 2.6s ease-in-out infinite; }
 .top .call::after { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(110deg, transparent 30%, rgba(255,255,255,.65) 48%, transparent 66%) -150% 0 / 60% 100% no-repeat; animation: sheen 3.6s ease-in-out infinite; }
 .top .call:hover { transform: translateY(-2px); box-shadow: 0 14px 26px rgba(80,0,40,.4), inset 0 1px 0 rgba(255,255,255,.6); }
@@ -391,14 +392,15 @@ a.foot-credit:hover img, .foot-credit a:hover img { opacity: 1; }
 @media (max-width: 560px) { .site-foot .foot-base { flex-direction: row; flex-wrap: wrap; align-items: center; gap: 6px 14px; } .site-foot .foot-base > span { order: 3; flex-basis: 100%; min-width: 0; font-size: .74rem; } .site-foot .foot-base .foot-end { margin-left: auto; } }
 /* Bottom strip styled exactly like the header: same gradient and gold box pattern */
 footer.site-foot .wrap { padding-bottom: 0; }
-footer.site-foot .foot-base { padding-block: 16px; color: #fff; text-shadow: 0 1px 3px rgba(60,0,30,.55); }
-footer.site-foot .foot-base::before { bottom: 0; background: linear-gradient(180deg, #7B003C 0%, #9A2A5E 30%, #C886A6 66%, #F6E3EB 100%); }
+footer.site-foot .foot-base { padding-block: 16px; color: #111; text-shadow: none; }
+footer.site-foot .foot-base::before { bottom: 0; background: linear-gradient(180deg, #F6E3EB 0%, #EBC9D7 45%, #CF93AE 100%); }
 footer.site-foot .foot-base .fpat { bottom: 0; background-position: center center; background-size: auto 190px; opacity: .45; }
-footer.site-foot .foot-base .foot-top { color: #fff; }
-footer.site-foot .foot-base .foot-top:hover { color: var(--gold); }
-footer.site-foot .foot-base .kn { filter: drop-shadow(0 0 2px rgba(255,255,255,.9)) drop-shadow(0 0 6px rgba(255,255,255,.6)); }
-footer.site-foot .foot-base .foot-credit { border-right-color: rgba(255,255,255,.5); }
-footer.site-foot .foot-base .foot-credit img { filter: invert(1) drop-shadow(0 1px 2px rgba(60,0,30,.5)); }
+footer.site-foot .foot-base .foot-top { color: #111; }
+footer.site-foot .foot-base .kn { filter: drop-shadow(0 0 3px rgba(0,0,0,.4)) drop-shadow(0 2px 8px rgba(0,0,0,.35)); }
+footer.site-foot .foot-base .foot-top:hover { color: var(--berry); }
+
+footer.site-foot .foot-base .foot-credit { border-right-color: rgba(0,0,0,.25); }
+
 @media (max-width: 700px) { footer.site-foot .foot-base .fpat { background-size: auto 150px; } }
 @media (max-width: 960px) { .foot-cols { grid-template-columns: 1fr 1fr; } .foot-cols > div:first-child { grid-column: 1 / -1; } }
 @media (max-width: 560px) { .foot-cols { grid-template-columns: 1fr; gap: 20px; } .foot-base { flex-direction: column; align-items: flex-start; } }
@@ -508,7 +510,8 @@ footer.site-foot .foot-base .foot-credit img { filter: invert(1) drop-shadow(0 1
   .dock a svg { width: 18px; height: 18px; flex: none; }
   .dock .dk-wa { text-shadow: none; background: linear-gradient(135deg, #9A1457, #7B003C 55%, #5C002D); color: #FFF6E4; border-color: var(--gold); box-shadow: 0 6px 14px rgba(80,0,40,.35); }
   .dock .dk-wa svg { color: var(--gold); }
-  .site-foot { padding-bottom: 76px; }
+  .site-foot { padding-bottom: 0; }
+  .dock.show.away { transform: translateY(140%); }
 
   /* scroll reveal */
   .rv { opacity: 0; transform: translateY(22px); transition: opacity .7s ease, transform .7s ease; }
@@ -719,7 +722,7 @@ footer.site-foot .foot-base .foot-credit img { filter: invert(1) drop-shadow(0 1
       </div>
     </div>
     <div class="foot-base"><div class="fpat" aria-hidden="true"></div>
-      <img class="kn" src="assets/logo-kannada-berry.png" alt="Amaskā in Kannada" width="500" height="158">
+      <img class="kn" src="assets/logo-kannada-dark.png" alt="Amaskā in Kannada" width="500" height="158">
       <span>© <span id="yr">2026</span> Amaskā Sweets &amp; Savouries, Bengaluru. Thank you for letting us be a part of your beautiful moments.</span>
       <div class="foot-end"><a class="foot-credit" href="https://www.gouuji.com" target="_blank" rel="noopener" aria-label="Ignited by Gouuji"><img src="assets/gouuji-black.png" alt="Ignited by Gouuji" width="460" height="200"></a><a class="foot-top" href="#top">Back to top ↑</a></div>
     </div>
@@ -753,9 +756,11 @@ footer.site-foot .foot-base .foot-credit img { filter: invert(1) drop-shadow(0 1
   nav.addEventListener('click', function (e) { if (e.target.tagName === 'A') { nav.classList.remove('open'); t.setAttribute('aria-expanded', 'false'); } });
   var dock = document.getElementById('dock');
   dock.style.backgroundImage = 'url(' + A('dock-pattern') + ')';
-  document.querySelector('.top .hpat').style.backgroundImage = document.querySelector('.foot-base .fpat').style.backgroundImage = 'url(' + A('header-pattern') + ')';
+  document.querySelector('.top .hpat').style.backgroundImage = 'url(' + A('header-filigree') + ')';
+  document.querySelector('.foot-base .fpat').style.backgroundImage = 'url(' + A('header-pattern') + ')';
   document.getElementById('dock-wa').href = wa('Hello Amaska, I would like to place an order.');
   function onDock() { dock.classList.toggle('show', window.scrollY > 420); }
+  if ('IntersectionObserver' in window && fb) new IntersectionObserver(function (e) { dock.classList.toggle('away', e[0].isIntersecting); }).observe(fb);
   window.addEventListener('scroll', onDock, { passive: true }); onDock();
   if ('IntersectionObserver' in window && fb) new IntersectionObserver(function (e) { dock.classList.toggle('away', e[0].isIntersecting); }).observe(fb);
   document.getElementById('yr').textContent = new Date().getFullYear();
