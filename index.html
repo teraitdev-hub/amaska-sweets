@@ -344,7 +344,7 @@ section { position: relative; }
 .foot-water { position: absolute; width: 520px; right: -140px; bottom: -160px; opacity: .06; pointer-events: none; animation: turn 120s linear infinite; }
 .site-foot .wrap { position: relative; padding-block: 40px 22px; }
 /* Same gold sweet-box pattern as the header */
-.site-foot .fpat { position: absolute; inset: 0; pointer-events: none; background: center top / auto 260px repeat; opacity: .3; }
+.foot-base .fpat { position: absolute; z-index: -1; top: 0; bottom: -300px; left: -100vmax; right: -100vmax; pointer-events: none; background: center top / auto 150px repeat; opacity: .35; }
 .foot-brand { display: grid; justify-items: center; text-align: center; gap: 10px; }
 .foot-mark { width: 60px; animation: turn 24s linear infinite; filter: drop-shadow(0 6px 14px rgba(0,0,0,.25)); }
 .foot-word { width: min(180px, 52vw); }
@@ -678,7 +678,7 @@ a.foot-credit:hover img, .foot-credit a:hover img { opacity: 1; }
   </section>
 </main>
 
-<footer class="site-foot on-berry"><div class="fpat" aria-hidden="true"></div>
+<footer class="site-foot on-berry">
   <img class="foot-water" src="assets/mark-gold.png" alt="" width="400" height="395">
   <div class="wrap">
     <div class="foot-brand">
@@ -707,7 +707,7 @@ a.foot-credit:hover img, .foot-credit a:hover img { opacity: 1; }
         <ul><li><a href="mailto:amaska.co.in@gmail.com">amaska.co.in@gmail.com</a></li><li><a href="https://www.amaska.in" target="_blank" rel="noopener">www.amaska.in</a></li><li><a href="https://www.instagram.com/amaskasweets/" target="_blank" rel="noopener">Instagram</a></li></ul>
       </div>
     </div>
-    <div class="foot-base">
+    <div class="foot-base"><div class="fpat" aria-hidden="true"></div>
       <img class="kn" src="assets/logo-kannada-berry.png" alt="Amaskā in Kannada" width="500" height="158">
       <span>© <span id="yr">2026</span> Amaskā Sweets &amp; Savouries, Bengaluru. Thank you for letting us be a part of your beautiful moments.</span>
       <div class="foot-end"><a class="foot-credit" href="https://www.gouuji.com" target="_blank" rel="noopener" aria-label="Ignited by Gouuji"><img src="assets/gouuji-black.png" alt="Ignited by Gouuji" width="460" height="200"></a><a class="foot-top" href="#top">Back to top ↑</a></div>
@@ -742,7 +742,7 @@ a.foot-credit:hover img, .foot-credit a:hover img { opacity: 1; }
   nav.addEventListener('click', function (e) { if (e.target.tagName === 'A') { nav.classList.remove('open'); t.setAttribute('aria-expanded', 'false'); } });
   var dock = document.getElementById('dock');
   dock.style.backgroundImage = 'url(' + A('dock-pattern') + ')';
-  document.querySelector('.top .hpat').style.backgroundImage = document.querySelector('.site-foot .fpat').style.backgroundImage = 'url(' + A('header-pattern') + ')';
+  document.querySelector('.top .hpat').style.backgroundImage = document.querySelector('.foot-base .fpat').style.backgroundImage = 'url(' + A('header-pattern') + ')';
   document.getElementById('dock-wa').href = wa('Hello Amaska, I would like to place an order.');
   function onDock() { dock.classList.toggle('show', window.scrollY > 420); }
   window.addEventListener('scroll', onDock, { passive: true }); onDock();
